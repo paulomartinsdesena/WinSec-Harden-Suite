@@ -1,0 +1,1 @@
+﻿Elimination of insecure protocols/applications
