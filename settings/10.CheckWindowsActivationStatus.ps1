@@ -1,4 +1,12 @@
-﻿# Verifica o estado de ativação do Windows
+﻿# Verifica se o script está sendo executado como administrador
+if (-not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) {
+    Write-Host "╔════════════════════════════════════════════════════════════╗" 
+    Write-Host "║ 🚫 Este script precisa ser executado como administrador. ║" -ForegroundColor Red
+    Write-Host "╚════════════════════════════════════════════════════════════╝"
+    exit
+
+
+# Verifica o estado de ativação do Windows
 function Get-WindowsActivationStatus {
     $wmipath = "SoftwareLicensingProduct"
     $query = "SELECT LicenseStatus FROM $wmipath WHERE LicenseStatus IS NOT NULL"

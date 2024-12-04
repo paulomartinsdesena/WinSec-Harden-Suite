@@ -30,8 +30,8 @@ function Execute-Script {
     clear
     switch ($option) {
         1 { Write-Host "🔄 Executando Atualização e Patching..." -ForegroundColor Yellow; Start-Process powershell.exe -ArgumentList "-ExecutionPolicy Bypass -File .\settings\01.UpdatePatching.ps1" -NoNewWindow -Wait  }
-        2 { Write-Host "👥 Executando Configuração de Contas e Privilégios..." -ForegroundColor Yellow; Start-Process powershell.exe -ArgumentList "-ExecutionPolicy Bypass -File .\settings\02.Configuring Accounts And Privileges.ps1" }
-        3 { Write-Host "🔥 Configurando Firewall e Filtro de Tráfego..." -ForegroundColor Yellow; Start-Process powershell.exe -ArgumentList "-ExecutionPolicy Bypass -File .\settings\03.Firewall And Traffic Filtering.ps1" }
+        2 { Write-Host "👥 Executando Configuração de Contas e Privilégios..." -ForegroundColor Yellow; Start-Process powershell.exe -ArgumentList "-ExecutionPolicy Bypass -File .\settings\02.ConfiguringAccountsAndPrivileges.ps1" -NoNewWindow -Wait}
+        3 { Write-Host "🔥 Configurando Firewall e Filtro de Tráfego..." -ForegroundColor Yellow; Start-Process powershell.exe -ArgumentList "-ExecutionPolicy Bypass -File .\settings\03.FirewallAndTrafficFiltering.ps1" -NoNewWindow -Wait }
         4 { Write-Host "🛠️  Removendo Serviços Desnecessários..." -ForegroundColor Yellow; Start-Process powershell.exe -ArgumentList "-ExecutionPolicy Bypass -File .\settings\04.RemovingUnnecessaryServices.ps1" -NoNewWindow -Wait }
         5 { Write-Host "🛡️  Configurando Antivirus e Antimalware..." -ForegroundColor Yellow; Start-Process powershell.exe -ArgumentList "-ExecutionPolicy Bypass -File .\settings\05.Antivirus and Antimalware.ps1" }
         6 { Write-Host "🕵️  Iniciando Auditoria e Monitoramento..." -ForegroundColor Yellow; Start-Process powershell.exe -ArgumentList "-ExecutionPolicy Bypass -File .\settings\06.Auditing and Monitoring.ps1" }
@@ -52,3 +52,4 @@ do {
     Execute-Script -option $userInput
     Pause
 } while ($userInput -ne 0)
+
