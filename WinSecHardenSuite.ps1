@@ -18,6 +18,7 @@ function Show-Menu {
     Write-Host "[08] ❌ Eliminação de Protocolos ou Aplicações Inseguras" -ForegroundColor Green
     Write-Host "[09] 🖥️ Ativação do Windows"                             -ForegroundColor Green
     Write-Host "[10] 📄 Verificar Status de Ativação do Windows"          -ForegroundColor Green
+    Write-Host "[11] ❌ Desinstalador de programas do Windows"          -ForegroundColor Green
     Write-Host "[00] 🚪 Sair"                                             -ForegroundColor Yellow
     Write-Host "============================================================" -ForegroundColor Red
 }
@@ -38,6 +39,7 @@ function Execute-Script {
         8 { Write-Host "❌ Eliminando Protocolos ou Aplicações Inseguras..." -ForegroundColor Yellow; Start-Process powershell.exe -ArgumentList "-ExecutionPolicy Bypass -File .\settings\08.Elimination of insecure protocols or applications.ps1" }
         9 { Write-Host "🖥️  Iniciando Ativação do Windows..." -ForegroundColor Yellow; Start-Process powershell.exe -ArgumentList "-ExecutionPolicy Bypass -File .\settings\09.WindowsActivation.ps1" -NoNewWindow -Wait }
         10 { Write-Host "📄 Verificando Status de Ativação do Windows..." -ForegroundColor Yellow; Start-Process powershell.exe -ArgumentList "-ExecutionPolicy Bypass -File .\settings\10.CheckWindowsActivationStatus.ps1" -NoNewWindow -Wait }
+        11 { Write-Host "❌ Desinstalador de programas do Windows" -ForegroundColor Yellow; Start-Process powershell.exe -ArgumentList "-ExecutionPolicy Bypass -File .\settings\11.ProgramUninstaller.ps1" -NoNewWindow -Wait }
         0 { Write-Host "🚪 Saindo do script... Até logo!" -ForegroundColor Green; exit }
         default { Write-Host "⚠️  Opção inválida. Tente novamente." -ForegroundColor Red }
     }
